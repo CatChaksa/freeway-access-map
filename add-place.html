@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Додати місце — FreeWay</title>
+    <meta name="description" content="Форма додавання нового місця до карти доступності">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🌍 FreeWay</h1>
+        <p>Карта доступності громадських місць</p>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="places.html">Місця</a></li>
+                <li><a href="add-place.html">Додати місце</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Додати місце</h1>
+        <p>Заповніть форму, щоб додати нове місце до карти доступності.</p>
+
+        <form action="#" method="post" class="add-place-form">
+
+            <fieldset>
+                <legend>Основна інформація</legend>
+
+                <label for="place-name">Назва місця *</label>
+                <input type="text" id="place-name" name="place-name" required minlength="3" maxlength="100" placeholder="Наприклад: Музей медуз">
+
+                <label for="place-address">Адреса *</label>
+                <input type="text" id="place-address" name="place-address" required placeholder="вул. Велика Васильківська, 12">
+
+                <label for="place-type">Тип місця *</label>
+                <select id="place-type" name="place-type" required>
+                    <option value="">— Оберіть тип —</option>
+                    <option value="museum">Музей</option>
+                    <option value="park">Парк</option>
+                    <option value="cafe">Кафе</option>
+                    <option value="library">Бібліотека</option>
+                    <option value="other">Інше</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Рівень доступності *</legend>
+
+                <label>
+                    <input type="radio" name="accessibility" value="full" required>
+                    🟢 Повністю доступно
+                </label>
+
+                <label>
+                    <input type="radio" name="accessibility" value="partial" required>
+                    🟡 Частково доступно
+                </label>
+
+                <label>
+                    <input type="radio" name="accessibility" value="none" required>
+                    🔴 Недоступно
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Деталі</legend>
+
+                <label for="place-description">Опис</label>
+                <textarea id="place-description" name="place-description" rows="4" maxlength="500" placeholder="Короткий опис місця та його доступності"></textarea>
+
+                <label for="place-hours">Години роботи</label>
+                <input type="time" id="place-hours" name="place-hours">
+
+                <label for="place-website">Сайт</label>
+                <input type="url" id="place-website" name="place-website" placeholder="https://example.com">
+
+                <label for="place-photo">Фото</label>
+                <input type="file" id="place-photo" name="place-photo" accept="image/*">
+            </fieldset>
+
+            <fieldset>
+                <legend>Контакти</legend>
+
+                <label for="user-email">Ваш email *</label>
+                <input type="email" id="user-email" name="user-email" required placeholder="you@example.com">
+            </fieldset>
+
+            <fieldset>
+                <legend>Підтвердження</legend>
+
+                <label>
+                    <input type="checkbox" name="agree" required>
+                    Я підтверджую, що інформація достовірна *
+                </label>
+            </fieldset>
+
+            <button type="submit">Надіслати</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2026 FreeWay. Проєкт з вебпрограмування</p>
+        <p>Наша мета — зробити міста доступними для всіх</p>
+    </footer>
+
+</body>
+</html>
