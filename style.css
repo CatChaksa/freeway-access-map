@@ -267,3 +267,113 @@ footer p:last-child {
 .status-red {
     border-left-color: #e74c3c;
 }
+
+.add-place-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+fieldset {
+    border: 2px solid #e8f0fe;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+legend {
+    font-weight: bold;
+    color: #1a3a5c;
+    padding: 0 10px;
+    font-size: 1.1rem;
+}
+
+.add-place-form label {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: 500;
+}
+
+.add-place-form input[type="text"],
+.add-place-form input[type="email"],
+.add-place-form input[type="url"],
+.add-place-form input[type="time"],
+.add-place-form select,
+.add-place-form textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.add-place-form input:focus,
+.add-place-form select:focus,
+.add-place-form textarea:focus {
+    outline: none;
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+}
+
+.add-place-form input:invalid:not(:placeholder-shown),
+.add-place-form textarea:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+    background-color: #fdf2f2;
+}
+
+.add-place-form input:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+}
+
+.add-place-form input[type="radio"],
+.add-place-form input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+}
+
+fieldset label:has(input[type="radio"]) {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border: 2px solid #e8f0fe;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+fieldset label:has(input[type="radio"]):hover {
+    background: #f0f7ff;
+    border-color: #1e3a8a;
+}
+
+.add-place-form button[type="submit"] {
+    background: #1e3a8a;
+    color: white;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: block;
+    margin: 0 auto;
+}
+
+.add-place-form button[type="submit"]:hover {
+    background: #1a3a5c;
+    transform: translateY(-2px);
+}
+
+.add-place-form button[type="submit"]:active {
+    transform: translateY(0);
+}
