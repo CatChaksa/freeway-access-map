@@ -69,6 +69,11 @@ main {
     width: 100%;
 }
 
+.page-title,
+.page-description {
+    grid-column: 1 / -1;
+}
+
 main:has(.sidebar) {
     grid-template-columns: 250px 1fr;
 }
