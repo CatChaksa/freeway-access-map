@@ -108,3 +108,30 @@ footer {
     padding: 20px;
     margin-top: 30px;
 }
+
+.sidebar {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+}
+
+.sidebar h2 {
+    color: #1a3a5c;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar li:last-child {
+    border-bottom: none;
+}
