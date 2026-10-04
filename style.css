@@ -99,6 +99,13 @@ nav a:hover {
     color: var(--color-primary-800);
 }
 
+@media (prefers-color-scheme: dark) {
+    nav a:hover {
+        background: var(--color-neutral-700);
+        color: var(--color-primary-200);
+    }
+}
+
 nav a.active {
     background: var(--color-primary-800);
     color: white;
@@ -125,6 +132,7 @@ main:has(.sidebar) {
     grid-template-columns: 250px 1fr;
 }
 
+/* ===== СЕКЦІЇ ===== */
 section {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
@@ -153,6 +161,7 @@ section ul li:last-child {
     border-bottom: none;
 }
 
+/* ===== ТАБЛИЦЯ ===== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -169,6 +178,7 @@ th, td {
     padding: var(--space-sm) var(--space-md);
     text-align: left;
     border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
 }
 
 th {
@@ -176,6 +186,14 @@ th {
     color: var(--color-heading);
 }
 
+@media (prefers-color-scheme: dark) {
+    th {
+        background: var(--color-neutral-700);
+        color: var(--color-heading);
+    }
+}
+
+/* ===== БІЧНА ПАНЕЛЬ ===== */
 .sidebar {
     background: var(--color-surface);
     padding: var(--space-lg);
@@ -203,6 +221,7 @@ th {
     border-bottom: none;
 }
 
+/* ===== СІТКА КАРТОК ===== */
 .places-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -220,7 +239,7 @@ th {
 .place-card {
     display: flex;
     flex-direction: column;
-    background: var(--color-neutral-50);
+    background: var(--color-surface);
     border-radius: var(--radius-lg);
     overflow: hidden;
     border-left: 6px solid var(--color-border);
@@ -247,6 +266,7 @@ th {
 .place-card p {
     padding: 0 20px;
     font-size: var(--font-size-sm);
+    color: var(--color-text);
 }
 
 .place-card a {
@@ -259,8 +279,20 @@ th {
     transition: background var(--transition-base);
 }
 
+@media (prefers-color-scheme: dark) {
+    .place-card a {
+        color: var(--color-primary-300);
+    }
+}
+
 .place-card a:hover {
     background: var(--color-primary-50);
+}
+
+@media (prefers-color-scheme: dark) {
+    .place-card a:hover {
+        background: var(--color-neutral-700);
+    }
 }
 
 .status-green {
@@ -275,6 +307,7 @@ th {
     border-left-color: var(--color-danger);
 }
 
+/* ===== ФОРМА ===== */
 .add-place-form {
     max-width: 700px;
     margin: 0 auto;
@@ -285,7 +318,7 @@ th {
 }
 
 fieldset {
-    border: 2px solid var(--color-primary-50);
+    border: 2px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
     margin-bottom: var(--space-lg);
@@ -319,7 +352,14 @@ legend {
     border-radius: var(--radius-md);
     font-size: var(--font-size-base);
     font-family: inherit;
+    background-color: var(--color-surface);
+    color: var(--color-text);
     transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.add-place-form input::placeholder,
+.add-place-form textarea::placeholder {
+    color: var(--color-text-muted);
 }
 
 .add-place-form input:focus,
@@ -334,6 +374,13 @@ legend {
 .add-place-form textarea:invalid:not(:placeholder-shown) {
     border-color: var(--color-danger);
     background-color: hsl(4, 90%, 97%);
+}
+
+@media (prefers-color-scheme: dark) {
+    .add-place-form input:invalid:not(:placeholder-shown),
+    .add-place-form textarea:invalid:not(:placeholder-shown) {
+        background-color: hsl(4, 90%, 15%);
+    }
 }
 
 .add-place-form input:valid:not(:placeholder-shown) {
@@ -351,9 +398,11 @@ fieldset label:has(input[type="radio"]) {
     align-items: center;
     padding: 10px 15px;
     margin-bottom: 8px;
-    border: 2px solid var(--color-primary-50);
+    border: 2px solid var(--color-border);
     border-radius: var(--radius-md);
     cursor: pointer;
+    background: var(--color-surface);
+    color: var(--color-text);
     transition: background var(--transition-base), border-color var(--transition-base);
 }
 
@@ -362,9 +411,15 @@ fieldset label:has(input[type="radio"]):hover {
     border-color: var(--color-primary-800);
 }
 
+@media (prefers-color-scheme: dark) {
+    fieldset label:has(input[type="radio"]):hover {
+        background: var(--color-neutral-700);
+    }
+}
+
 .add-place-form button[type="submit"] {
     background: var(--color-primary-800);
-    color: white;
+    color: var(--color-neutral-50);
     padding: 14px 40px;
     border: none;
     border-radius: var(--radius-full);
@@ -385,10 +440,11 @@ fieldset label:has(input[type="radio"]):hover {
     transform: translateY(0);
 }
 
+/* ===== ПІДВАЛ ===== */
 footer {
     grid-area: footer;
     background: var(--color-primary-800);
-    color: white;
+    color: var(--color-neutral-50);
     text-align: center;
     padding: var(--space-xl) var(--container-padding);
     margin-top: var(--space-2xl);
