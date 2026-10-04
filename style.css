@@ -71,7 +71,7 @@ header {
 
 .tagline {
     font-size: var(--font-size-sm);
-    color: var(--color-accent-500);
+    color: var(--color-tagline);
     margin: 0;
     font-weight: 600;
     line-height: var(--line-height-tight);

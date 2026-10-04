@@ -13,6 +13,7 @@
     --color-accent-400: hsl(43, 96%, 65%);
     --color-accent-500: hsl(43, 96%, 56%);
     --color-accent-600: hsl(43, 90%, 48%);
+    --color-tagline: hsl(43, 90%, 35%);
 
     --color-success: hsl(145, 63%, 42%);
     --color-warning: hsl(38, 92%, 50%);
@@ -88,6 +89,7 @@
         --color-text-muted: var(--color-neutral-400);
         --color-border:     var(--color-neutral-700);
         --color-heading:    var(--color-primary-200);
+        --color-tagline: hsl(43, 96%, 56%);
 
         --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
         --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.4);
