@@ -117,15 +117,8 @@ main {
 }
 
 .page-title,
-.page-description,
-.places-heading {
+.page-description {
     grid-column: 1 / -1;
-}
-
-.places-heading {
-    color: var(--color-heading);
-    margin-bottom: 5px;
-    font-size: var(--font-size-2xl);
 }
 
 main:has(.sidebar) {
@@ -215,6 +208,13 @@ th {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--space-lg);
     margin-top: var(--space-md);
+}
+
+.places-list h2 {
+    grid-column: 1 / -1;
+    color: var(--color-heading);
+    margin-bottom: 5px;
+    font-size: var(--font-size-2xl);
 }
 
 .place-card {
