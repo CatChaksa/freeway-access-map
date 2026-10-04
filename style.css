@@ -456,7 +456,7 @@ footer p:first-child {
 }
 
 footer p:last-child {
-    opacity: 0.8;
+    color: var(--color-neutral-200);
     font-size: var(--font-size-sm);
     margin-top: 5px;
 }
