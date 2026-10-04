@@ -404,3 +404,75 @@ footer p:last-child {
     font-size: var(--font-size-sm);
     margin-top: 5px;
 }
+
+/* ===== АДАПТИВНІСТЬ ===== */
+
+@media (max-width: 768px) {
+    header {
+        padding: var(--space-md) var(--space-lg);
+    }
+
+    .logo-link h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main:has(.sidebar) {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        order: -1;
+    }
+
+    .places-list {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+
+    .logo-link {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--space-xs);
+    }
+
+    nav a {
+        text-align: center;
+    }
+
+    main {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    section {
+        padding: var(--space-lg);
+    }
+
+    .places-list {
+        grid-template-columns: 1fr;
+    }
+
+    .add-place-form {
+        padding: var(--space-lg);
+    }
+
+    .add-place-form button[type="submit"] {
+        width: 100%;
+    }
+}
