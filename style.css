@@ -124,10 +124,8 @@ header {
     display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-    .theme-toggle:hover {
-        background: var(--color-neutral-700);
-    }
+[data-theme="dark"] .theme-toggle:hover {
+    background: var(--color-neutral-700);
 }
 
 nav ul {
@@ -152,11 +150,9 @@ nav a:hover {
     color: var(--color-primary-800);
 }
 
-@media (prefers-color-scheme: dark) {
-    nav a:hover {
-        background: var(--color-neutral-700);
-        color: var(--color-primary-200);
-    }
+[data-theme="dark"] nav a:hover {
+    background: var(--color-neutral-700);
+    color: var(--color-primary-200);
 }
 
 nav a.active {
@@ -239,11 +235,9 @@ th {
     color: var(--color-heading);
 }
 
-@media (prefers-color-scheme: dark) {
-    th {
-        background: var(--color-neutral-700);
-        color: var(--color-heading);
-    }
+[data-theme="dark"] th {
+    background: var(--color-neutral-700);
+    color: var(--color-heading);
 }
 
 /* ===== БІЧНА ПАНЕЛЬ ===== */
@@ -332,20 +326,16 @@ th {
     transition: background var(--transition-base);
 }
 
-@media (prefers-color-scheme: dark) {
-    .place-card a {
-        color: var(--color-primary-300);
-    }
+[data-theme="dark"] .place-card a {
+    color: var(--color-primary-300);
 }
 
 .place-card a:hover {
     background: var(--color-primary-50);
 }
 
-@media (prefers-color-scheme: dark) {
-    .place-card a:hover {
-        background: var(--color-neutral-700);
-    }
+[data-theme="dark"] .place-card a:hover {
+    background: var(--color-neutral-700);
 }
 
 .status-green {
@@ -429,11 +419,9 @@ legend {
     background-color: hsl(4, 90%, 97%);
 }
 
-@media (prefers-color-scheme: dark) {
-    .add-place-form input:invalid:not(:placeholder-shown),
-    .add-place-form textarea:invalid:not(:placeholder-shown) {
-        background-color: hsl(4, 90%, 15%);
-    }
+[data-theme="dark"] .add-place-form input:invalid:not(:placeholder-shown),
+[data-theme="dark"] .add-place-form textarea:invalid:not(:placeholder-shown) {
+    background-color: hsl(4, 90%, 15%);
 }
 
 .add-place-form input:valid:not(:placeholder-shown) {
@@ -464,10 +452,8 @@ fieldset label:has(input[type="radio"]):hover {
     border-color: var(--color-primary-800);
 }
 
-@media (prefers-color-scheme: dark) {
-    fieldset label:has(input[type="radio"]):hover {
-        background: var(--color-neutral-700);
-    }
+[data-theme="dark"] fieldset label:has(input[type="radio"]):hover {
+    background: var(--color-neutral-700);
 }
 
 .add-place-form button[type="submit"] {
@@ -515,7 +501,6 @@ footer p:last-child {
 }
 
 /* ===== АДАПТИВНІСТЬ ===== */
-
 @media (max-width: 768px) {
     header {
         padding: var(--space-md) var(--space-lg);
