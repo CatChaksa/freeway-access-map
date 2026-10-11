@@ -11,9 +11,6 @@ function getInitialTheme() {
 
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    if (themeIcon) {
-        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
 }
 
 const initialTheme = getInitialTheme();
