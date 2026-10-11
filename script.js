@@ -209,3 +209,85 @@ accessibilityRadios.forEach(radio => {
 if (placesList) {
     loadPlaces();
 }
+
+// ===== МОДАЛЬНЕ ВІКНО =====
+const modal = document.getElementById('place-modal');
+const modalImage = document.getElementById('modal-image');
+const modalTitle = document.getElementById('modal-title');
+const modalAddress = document.getElementById('modal-address');
+const modalAccess = document.getElementById('modal-access');
+const modalHours = document.getElementById('modal-hours');
+const modalDescription = document.getElementById('modal-description');
+const modalFeatures = document.getElementById('modal-features');
+const modalClose = modal?.querySelector('.modal__close');
+
+let lastFocusedElement = null;
+
+function fillModal(place) {
+    modalImage.src = place.image;
+    modalImage.alt = `Фото: ${place.name}`;
+    modalTitle.textContent = place.name;
+    modalAddress.textContent = place.address;
+    modalAccess.textContent = place.accessibilityLabel;
+    modalHours.textContent = place.hours;
+    modalDescription.textContent = place.description;
+
+    modalFeatures.innerHTML = '';
+    const features = [
+        { label: 'Пандус', value: place.hasRamp },
+        { label: 'Ліфт', value: place.hasElevator },
+        { label: 'Доступний туалет', value: place.hasAccessibleToilet }
+    ];
+
+    features.forEach(feature => {
+        const li = document.createElement('li');
+        li.textContent = `${feature.value ? '✅' : '❌'} ${feature.label}`;
+        modalFeatures.appendChild(li);
+    });
+}
+
+function openModal(place, triggerElement) {
+    fillModal(place);
+    lastFocusedElement = triggerElement;
+    modal.showModal();
+    modalClose?.focus();
+}
+
+function closeModal() {
+    modal.close();
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+        lastFocusedElement = null;
+    }
+}
+
+modalClose?.addEventListener('click', closeModal);
+
+modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+modal?.addEventListener('close', () => {
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+        lastFocusedElement = null;
+    }
+});
+
+// ===== ДЕЛЕГУВАННЯ ПОДІЙ =====
+placesList?.addEventListener('click', (e) => {
+
+    const card = e.target.closest('.place-card');
+    if (!card) return;
+
+    const placeId = Number(card.dataset.id);
+    const place = state.places.find(p => p.id === placeId);
+
+    if (!place) return;
+
+    if (e.target.closest('a')) return;
+
+    openModal(place, card);
+});

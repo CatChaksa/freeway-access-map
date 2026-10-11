@@ -77,5 +77,31 @@
     </footer>
     <script src="script.js" defer></script>
 
+    <dialog class="modal" id="place-modal" aria-labelledby="modal-title">
+        <article class="modal__content">
+            <button class="modal__close" type="button" aria-label="Закрити">✕</button>
+
+            <img class="modal__image" id="modal-image" src="" alt="">
+
+            <h2 class="modal__title" id="modal-title"></h2>
+
+            <p class="modal__address">
+                <strong>Адреса:</strong> <span id="modal-address"></span>
+            </p>
+
+            <p class="modal__access">
+                <strong>Рівень доступності:</strong> <span id="modal-access"></span>
+            </p>
+
+            <p class="modal__hours">
+                <strong>Години роботи:</strong> <span id="modal-hours"></span>
+            </p>
+
+            <p class="modal__description" id="modal-description"></p>
+
+            <ul class="modal__features" id="modal-features"></ul>
+        </article>
+    </dialog>
+
 </body>
 </html>
