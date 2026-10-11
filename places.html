@@ -38,12 +38,32 @@
 
         <aside class="sidebar">
             <h2>Фільтри</h2>
-            <p>Тут будуть фільтри за рівнем доступності.</p>
-            <ul>
-                <li>🟢 Повністю доступно</li>
-                <li>🟡 Частково доступно</li>
-                <li>🔴 Недоступно</li>
-            </ul>
+            <label for="search-input">Пошук за назвою</label>
+            <input type="search" id="search-input" placeholder="Введіть назву..." autocomplete="off">
+
+            <fieldset class="filter-fieldset">
+                <legend>Рівень доступності</legend>
+
+                <label class="filter-radio">
+                    <input type="radio" name="accessibility-filter" value="all" checked>
+                    <span>Усі</span>
+                </label>
+
+                <label class="filter-radio">
+                    <input type="radio" name="accessibility-filter" value="full">
+                    <span>🟢 Повністю доступно</span>
+                </label>
+
+                <label class="filter-radio">
+                    <input type="radio" name="accessibility-filter" value="partial">
+                    <span>🟡 Частково доступно</span>
+                </label>
+
+                <label class="filter-radio">
+                    <input type="radio" name="accessibility-filter" value="none">
+                    <span>🔴 Недоступно</span>
+                </label>
+            </fieldset>
         </aside>
 
         <section class="places-list" id="places-list">
