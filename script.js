@@ -42,6 +42,9 @@ function createPlaceCard(place) {
     const article = document.createElement('article');
     article.className = `place-card ${STATUS_CLASS[place.accessibility] || ''}`;
     article.dataset.id = place.id;
+    article.tabIndex = 0;
+    article.setAttribute('role', 'button');
+    article.setAttribute('aria-label', `Відкрити деталі: ${place.name}`);
 
     const img = document.createElement('img');
     img.src = place.image;
@@ -290,4 +293,15 @@ placesList?.addEventListener('click', (e) => {
     if (e.target.closest('a')) return;
 
     openModal(place, card);
+
+});
+
+placesList?.addEventListener('keydown', (e) => {
+    const card = e.target.closest('.place-card');
+    if (!card) return;
+
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+    }
 });

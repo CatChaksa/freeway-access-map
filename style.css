@@ -761,3 +761,8 @@ footer p:last-child {
 .places-retry:hover {
     background: var(--color-primary-900);
 }
+
+.place-card:focus-visible {
+    outline: 3px solid var(--color-primary-800);
+    outline-offset: 3px;
+}
