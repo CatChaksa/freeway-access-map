@@ -22,3 +22,140 @@ themeToggle?.addEventListener('click', () => {
     applyTheme(next);
     localStorage.setItem('theme', next);
 });
+
+
+// ===== ЗАВАНТАЖЕННЯ МІСЦЬ =====
+const placesList = document.getElementById('places-list');
+
+const STATUS_CLASS = {
+    full: 'status-green',
+    partial: 'status-yellow',
+    none: 'status-red'
+};
+
+function createPlaceCard(place) {
+    const article = document.createElement('article');
+    article.className = `place-card ${STATUS_CLASS[place.accessibility] || ''}`;
+    article.dataset.id = place.id;
+
+    // Зображення
+    const img = document.createElement('img');
+    img.src = place.image;
+    img.alt = `Фото: ${place.name}`;
+    img.width = 300;
+    img.height = 200;
+    article.appendChild(img);
+
+    // Назва
+    const h3 = document.createElement('h3');
+    h3.textContent = place.name;
+    article.appendChild(h3);
+
+    // Адреса
+    const pAddress = document.createElement('p');
+    const strongAddress = document.createElement('strong');
+    strongAddress.textContent = 'Адреса:';
+    pAddress.appendChild(strongAddress);
+    pAddress.appendChild(document.createTextNode(' ' + place.address));
+    article.appendChild(pAddress);
+
+    // Рівень доступності
+    const pAccess = document.createElement('p');
+    const strongAccess = document.createElement('strong');
+    strongAccess.textContent = 'Рівень доступності:';
+    pAccess.appendChild(strongAccess);
+    pAccess.appendChild(document.createTextNode(' ' + place.accessibilityLabel));
+    article.appendChild(pAccess);
+
+    // Години роботи
+    const pHours = document.createElement('p');
+    const strongHours = document.createElement('strong');
+    strongHours.textContent = 'Години роботи:';
+    pHours.appendChild(strongHours);
+    pHours.appendChild(document.createTextNode(' ' + place.hours));
+    article.appendChild(pHours);
+
+    // Посилання "Детальніше"
+    const link = document.createElement('a');
+    link.href = `place-detail.html?id=${place.id}`;
+    link.textContent = 'Детальніше →';
+    article.appendChild(link);
+
+    return article;
+}
+
+// Показ стану завантаження
+function showLoading() {
+    placesList.innerHTML = '';
+    const loader = document.createElement('p');
+    loader.className = 'places-state places-state--loading';
+    loader.textContent = '⏳ Завантаження місць...';
+    placesList.appendChild(loader);
+}
+
+// Показ помилки
+function showError(message, onRetry) {
+    placesList.innerHTML = '';
+    const error = document.createElement('div');
+    error.className = 'places-state places-state--error';
+
+    const text = document.createElement('p');
+    text.textContent = '❌ ' + message;
+    error.appendChild(text);
+
+    const retryBtn = document.createElement('button');
+    retryBtn.type = 'button';
+    retryBtn.className = 'places-retry';
+    retryBtn.textContent = 'Спробувати ще раз';
+    retryBtn.addEventListener('click', onRetry);
+    error.appendChild(retryBtn);
+
+    placesList.appendChild(error);
+}
+
+// Показ порожнього результату
+function showEmpty() {
+    placesList.innerHTML = '';
+    const empty = document.createElement('p');
+    empty.className = 'places-state places-state--empty';
+    empty.textContent = '📭 Місць поки немає';
+    placesList.appendChild(empty);
+}
+
+// Завантаження даних
+async function loadPlaces() {
+    showLoading();
+
+    try {
+        const response = await fetch('data/places.json');
+
+        if (!response.ok) {
+            throw new Error(`Помилка завантаження: ${response.status}`);
+        }
+
+        const places = await response.json();
+
+        if (!places || places.length === 0) {
+            showEmpty();
+            return;
+        }
+
+        placesList.innerHTML = '';
+
+        const heading = document.createElement('h2');
+        heading.textContent = 'Усі місця';
+        placesList.appendChild(heading);
+
+        places.forEach(place => {
+            placesList.appendChild(createPlaceCard(place));
+        });
+
+    } catch (error) {
+        console.error('Помилка:', error);
+        showError('Не вдалося завантажити місця. Перевірте з\'єднання.', loadPlaces);
+    }
+}
+
+if (placesList) {
+    loadPlaces();
+}
