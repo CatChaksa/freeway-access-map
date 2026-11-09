@@ -305,3 +305,15 @@ placesList?.addEventListener('keydown', (e) => {
         card.click();
     }
 });
+
+// ===== ІНІЦІАЛІЗАЦІЯ КАРТИ =====
+const mapContainer = document.getElementById('map');
+
+if (mapContainer) {
+    const map = L.map('map').setView([48.3794, 31.1656], 6);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+}

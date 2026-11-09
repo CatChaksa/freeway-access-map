@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта — FreeWay</title>
+    
+    <!-- Підключаємо стилі Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.svg" alt="" class="logo" width="70" height="70">
+            <span class="brand-text">
+                <h1>FreeWay</h1>
+                <p class="tagline">Шлях без бар'єрів!</p>
+            </span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="places.html">Місця</a></li>
+                <li><a href="map.html">Карта</a></li>
+                <li><a href="add-place.html">Додати місце</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Перемкнути тему">
+            <img src="images/icon-moon.png" alt="" class="theme-icon theme-icon--moon" width="20" height="20">
+            <img src="images/icon-sun.png" alt="" class="theme-icon theme-icon--sun" width="20" height="20">
+        </button>
+    </header>
+
+    <main>
+        <h2 class="page-title">Карта доступності</h2>
+        <p class="page-description">Тут ви можете переглянути місця на карті.</p>
+        
+        <!-- Контейнер для карти -->
+        <div id="map" style="height: 500px; width: 100%; border-radius: 15px; z-index: 1;"></div>
+    </main>
+
+    <footer>
+        <p>© 2026 FreeWay</p>
+        <p>Наша мета — зробити міста доступними для всіх</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
