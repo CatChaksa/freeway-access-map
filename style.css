@@ -503,20 +503,23 @@ th {
 }
 
 /* ===== СТОРІНКА КАРТИ ===== */
+body:has(.map-page) {
+    height: 100vh;
+    overflow: hidden;
+}
+
 main.map-page {
-    display: block;
+    display: flex;
     padding: 0;
     margin: 0;
     max-width: 100%;
-    height: 100%;
-    overflow: hidden;
 }
 
 .map-container {
     width: 100%;
-    height: 100%; 
-    min-height: calc(100vh - 150px);
+    height: 100%;
     z-index: 1;
+    background: transparent; 
 }
 
 /* ===== ФОРМА ===== */
