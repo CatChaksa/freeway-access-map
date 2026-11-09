@@ -518,6 +518,8 @@ th {
 body:has(.map-page) {
     height: 100vh;
     overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 main.map-page {
@@ -526,6 +528,7 @@ main.map-page {
     padding: 0;
     margin: 0;
     max-width: 100%;
+    min-height: 0; 
 }
 
 .map-container {
@@ -534,6 +537,12 @@ main.map-page {
     height: 100%;
     z-index: 1;
     background: transparent; 
+    min-height: 100%; 
+}
+
+body:has(.map-page) footer {
+    margin-top: 0;
+    border-radius: 0;
 }
 
 /* ===== ФОРМА ===== */
