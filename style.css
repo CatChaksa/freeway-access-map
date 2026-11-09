@@ -502,6 +502,23 @@ th {
     color: var(--color-text);
 }
 
+/* ===== СТОРІНКА КАРТИ ===== */
+main.map-page {
+    display: block;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.map-container {
+    width: 100%;
+    height: 100%; 
+    min-height: calc(100vh - 150px);
+    z-index: 1;
+}
+
 /* ===== ФОРМА ===== */
 .add-place-form {
     max-width: 700px;
