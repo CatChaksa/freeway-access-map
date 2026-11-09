@@ -68,32 +68,64 @@
             </fieldset>
 
             <fieldset>
-                <legend>Рівень доступності *</legend>
+                <legend>Загальний рівень доступності *</legend>
 
-                <label>
+                <label class="radio-label">
                     <input type="radio" name="accessibility" value="full" required>
-                    🟢 Повністю доступно
+                    <span>🟢 Повністю доступно</span>
                 </label>
 
-                <label>
-                    <input type="radio" name="accessibility" value="partial" required>
-                    🟡 Частково доступно
+                <label class="radio-label">
+                    <input type="radio" name="accessibility" value="partial">
+                    <span>🟡 Частково доступно</span>
                 </label>
 
-                <label>
-                    <input type="radio" name="accessibility" value="none" required>
-                    🔴 Недоступно
+                <label class="radio-label">
+                    <input type="radio" name="accessibility" value="none">
+                    <span>🔴 Недоступно</span>
                 </label>
             </fieldset>
 
             <fieldset>
-                <legend>Деталі</legend>
+                <legend>Що саме є на місці?</legend>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" name="has-ramp" value="yes">
+                    <span>Є пандус</span>
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" name="has-elevator" value="yes">
+                    <span>Є ліфт</span>
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" name="has-toilet" value="yes">
+                    <span>Є доступний туалет</span>
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" name="has-wide-doors" value="yes">
+                    <span>Широкі двері</span>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Додаткова інформація</legend>
 
                 <label for="place-description">Опис</label>
-                <textarea id="place-description" name="place-description" rows="4" maxlength="500" placeholder="Короткий опис місця та його доступності"></textarea>
+                <textarea id="place-description" name="place-description" rows="3" maxlength="500" placeholder="Короткий опис місця та його доступності"></textarea>
 
-                <label for="place-hours">Години роботи</label>
-                <input type="time" id="place-hours" name="place-hours">
+                <div class="time-group">
+                    <div>
+                        <label for="place-hours-open">Відкриття</label>
+                        <input type="time" id="place-hours-open" name="place-hours-open">
+                    </div>
+                    <div>
+                        <label for="place-hours-close">Закриття</label>
+                        <input type="time" id="place-hours-close" name="place-hours-close">
+                    </div>
+                </div>
 
                 <label for="place-website">Сайт</label>
                 <input type="url" id="place-website" name="place-website" placeholder="https://example.com">
@@ -103,18 +135,20 @@
             </fieldset>
 
             <fieldset>
-                <legend>Контакти</legend>
+                <legend>Ваші контакти</legend>
+
+                <label for="user-name">Ім'я та прізвище *</label>
+                <input type="text" id="user-name" name="user-name" required minlength="2" maxlength="50" placeholder="Наприклад: Іван Іванов">
 
                 <label for="user-email">Ваш email *</label>
                 <input type="email" id="user-email" name="user-email" required placeholder="you@example.com">
-            </fieldset>
 
-            <fieldset>
-                <legend>Підтвердження</legend>
+                <label for="user-phone">Номер телефону (необов'язково)</label>
+                <input type="tel" id="user-phone" name="user-phone" pattern="[0-9+\s()-]{10,20}" placeholder="+380 (99) 123-45-67" title="Введіть коректний номер телефону">
 
-                <label>
+                <label class="checkbox-label" style="margin-top: 15px;">
                     <input type="checkbox" name="agree" required>
-                    Я підтверджую, що інформація достовірна *
+                    <span>Я підтверджую, що інформація достовірна *</span>
                 </label>
             </fieldset>
 
