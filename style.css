@@ -69,9 +69,9 @@ header {
 .logo-link h1 {
     font-size: var(--font-size-3xl);
     margin: 0;
-    font-weight: 800; /* Зробив трохи жирнішим */
+    font-weight: 800; 
     letter-spacing: -0.5px;
-    color: var(--color-primary-800); /* Темно-синій, як лого */
+    color: var(--color-heading);
     line-height: 1.1;
 }
 
