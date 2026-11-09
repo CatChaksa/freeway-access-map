@@ -660,7 +660,7 @@ body:has(.map-page) footer {
 /* ===== ПІДВАЛ ===== */
 footer {
     grid-area: footer;
-    background: var(--color-primary-800);
+    background: var(--color-primary-900);
     color: var(--color-neutral-50);
     text-align: center;
     padding: var(--space-xl) var(--container-padding);
