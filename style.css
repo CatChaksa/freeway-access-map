@@ -178,6 +178,18 @@ main {
     width: 100%;
 }
 
+main:has(.add-place-form) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main:has(.add-place-form) .page-title,
+main:has(.add-place-form) .page-description {
+    width: 100%;
+    text-align: center;
+}
+
 .page-title,
 .page-description {
     grid-column: 1 / -1;
@@ -526,19 +538,31 @@ main.map-page {
 
 /* ===== ФОРМА ===== */
 .add-place-form {
-    max-width: 800px;
+    max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
     background: var(--color-surface);
     padding: var(--space-xl);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
 }
 
 fieldset {
     border: 2px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
-    margin-bottom: var(--space-lg);
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset:last-of-type,
+.add-place-form button[type="submit"] {
+    grid-column: 1 / -1;
 }
 
 legend {
@@ -609,7 +633,7 @@ legend {
 
 .add-place-form input[type="radio"],
 .add-place-form input[type="checkbox"] {
-    margin-right: 8px;
+    margin-right: 12px;
     transform: scale(1.2);
     cursor: pointer;
 }
@@ -677,7 +701,7 @@ fieldset label:has(input[type="checkbox"]:checked) {
 .add-place-form button[type="submit"] {
     background: var(--color-primary-800);
     color: var(--color-neutral-50);
-    padding: 14px 40px;
+    padding: 16px 40px;
     border: none;
     border-radius: var(--radius-full);
     font-size: var(--font-size-lg);
@@ -685,7 +709,9 @@ fieldset label:has(input[type="checkbox"]:checked) {
     cursor: pointer;
     transition: background var(--transition-base), transform var(--transition-base);
     display: block;
-    margin: 0 auto;
+    margin: var(--space-md) auto 0;
+    width: 100%;
+    max-width: 300px;
 }
 
 .add-place-form button[type="submit"]:hover {
@@ -743,6 +769,10 @@ footer p:last-child {
 
     .places-list {
         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .add-place-form {
+        grid-template-columns: 1fr;
     }
 }
 
