@@ -510,12 +510,14 @@ body:has(.map-page) {
 
 main.map-page {
     display: flex;
+    flex-direction: column;
     padding: 0;
     margin: 0;
     max-width: 100%;
 }
 
 .map-container {
+    flex-grow: 1;
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -649,6 +651,10 @@ fieldset label:has(input[type="radio"]):hover {
 
 .add-place-form button[type="submit"]:active {
     transform: translateY(0);
+}
+
+body:has(.map-page) footer {
+    margin-top: 0;
 }
 
 /* ===== ПІДВАЛ ===== */
