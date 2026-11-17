@@ -177,7 +177,8 @@ nav a.active {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 100;
+    z-index: 110;
+    position: relative;
 }
 
 .burger-menu span {
@@ -189,6 +190,10 @@ nav a.active {
     transition: all 0.3s ease;
 }
 
+.burger-menu.active span {
+    background-color: white; 
+}
+
 .burger-menu.active span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -198,7 +203,6 @@ nav a.active {
 .burger-menu.active span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
 }
-
 main {
     grid-area: main;
     display: grid;
@@ -813,33 +817,47 @@ footer p:last-child {
     }
 
     header nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--color-surface);
-        box-shadow: var(--shadow-lg);
-        padding: var(--space-md);
-        display: none; /* Ховаємо */
-        border-bottom: 3px solid var(--color-accent-500);
-        z-index: 10;
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 70%; 
+        height: 100vh; 
+        background: var(--color-menu-overlay); 
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease-in-out;
+        z-index: 100;
+        box-shadow: var(--shadow-overlay);
     }
 
     header nav.active {
-        display: block;
+        right: 0;
     }
 
     header nav ul {
         flex-direction: column;
         align-items: center;
-        gap: var(--space-md);
+        gap: var(--space-xl);
+        width: 100%;
+        padding: 0;
     }
 
     header nav a {
         width: 100%;
         text-align: center;
         padding: 15px;
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-xl);
+        color: var(--color-neutral-50);
+        border-bottom: 1px solid var(--color-overlay-light);
+        text-decoration: none;
+        display: block;
+    }
+
+    header nav a:hover {
+        background: var(--color-overlay-hover);
     }
 }
 
@@ -884,6 +902,55 @@ footer p:last-child {
         padding: var(--space-md) var(--space-sm);
         width: 100%;
         overflow-x: hidden;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block; /* Робимо всі елементи блочними */
+    }
+
+    caption {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px; 
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background: var(--color-surface);
+        padding: 10px;
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td:nth-of-type(1):before { content: "Позначка: "; font-weight: bold; }
+    td:nth-of-type(2):before { content: "Рівень: "; font-weight: bold; }
+    td:nth-of-type(3):before { content: "Що означає: "; font-weight: bold; }
+    
+    td:before {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 45%;
+        white-space: nowrap;
     }
 
     section {

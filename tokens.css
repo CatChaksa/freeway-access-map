@@ -10,6 +10,8 @@
     --color-primary-800: hsl(220, 75%, 22%);
     --color-primary-900: hsl(220, 80%, 15%);
 
+     --color-menu-overlay: hsla(220, 80%, 15%, 0.95); 
+
     --color-accent-400: hsl(43, 96%, 65%);
     --color-accent-500: hsl(43, 96%, 56%);
     --color-accent-600: hsl(43, 90%, 48%);
@@ -29,6 +31,10 @@
     --color-neutral-700: hsl(220, 15%, 25%);
     --color-neutral-800: hsl(220, 18%, 15%);
     --color-neutral-900: hsl(220, 20%, 10%);
+
+    --color-overlay-light: hsla(0, 0%, 100%, 0.2); 
+    --color-overlay-hover: hsla(0, 0%, 100%, 0.15);
+     --shadow-overlay: -5px 0 15px rgba(0, 0, 0, 0.3);
 
     --color-bg:          var(--color-neutral-50);
     --color-surface:     hsl(0, 0%, 100%);
