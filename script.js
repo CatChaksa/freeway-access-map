@@ -21,6 +21,17 @@ themeToggle?.addEventListener('click', () => {
     localStorage.setItem('theme', next);
 });
 
+// ===== МОБІЛЬНЕ МЕНЮ =====
+const burgerMenu = document.getElementById('burger-menu');
+const mainNav = document.querySelector('header nav');
+
+if (burgerMenu && mainNav) {
+    burgerMenu.addEventListener('click', () => {
+        burgerMenu.classList.toggle('active');
+        mainNav.classList.toggle('active');
+    });
+}
+
 // ===== ЗАВАНТАЖЕННЯ МІСЦЬ =====
 const placesList = document.getElementById('places-list');
 
