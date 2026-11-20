@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Додати місце — FreeWay</title>
+    <meta name="description" content="Форма додавання нового місця до карти доступності">
+    <link rel="stylesheet" href="/src/tokens.css">
+    <link rel="stylesheet" href="/src/style.css">
+    
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="FreeWay" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.svg" alt="" class="logo" width="70" height="70">
+            <span class="brand-text">
+                <h1>FreeWay</h1>
+                <p class="tagline">Шлях без бар'єрів!</p>
+            </span>
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="places.html">Місця</a></li>
+                <li><a href="map.html">Карта</a></li>
+                <li><a href="add-place.html">Додати місце</a></li>
+            </ul>
+        </nav>
+
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Перемкнути тему">
+            <img src="images/icon-moon.png" alt="" class="theme-icon theme-icon--moon" width="20" height="20">
+            <img src="images/icon-sun.png" alt="" class="theme-icon theme-icon--sun" width="20" height="20">
+        </button>
+
+        <button class="burger-menu" id="burger-menu" type="button" aria-label="Відкрити меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <h2>Додати місце</h2>
+        <p>Заповніть форму, щоб додати нове місце до карти доступності.</p>
+
+        <form action="#" method="post" class="add-place-form">
+
+            <fieldset>
+                <legend>Основна інформація</legend>
+
+                <label for="place-name">Назва місця *</label>
+                <input type="text" id="place-name" name="place-name" required minlength="3" maxlength="100" placeholder="Наприклад: Музей медуз">
+
+                <label for="place-address">Адреса *</label>
+                <input type="text" id="place-address" name="place-address" required placeholder="вул. Велика Васильківська, 12">
+
+                <label for="place-type">Тип місця *</label>
+                <select id="place-type" name="place-type" required>
+                    <option value="" disabled selected hidden>— Оберіть тип —</option>
+                    <option value="museum">Музей</option>
+                    <option value="park">Парк</option>
+                    <option value="cafe">Кафе</option>
+                    <option value="library">Бібліотека</option>
+                    <option value="other">Інше</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Загальний рівень доступності *</legend>
+
+                <label class="radio-label">
+                    <input type="radio" name="accessibility" value="full" required>
+                    <span>🟢 Повністю доступно</span>
+                </label>
+
+                <label class="radio-label">
+                    <input type="radio" name="accessibility" value="partial">
+                    <span>🟡 Частково доступно</span>
+                </label>
+
+                <label class="radio-label">
+                    <input type="radio" name="accessibility" value="none">
+                    <span>🔴 Недоступно</span>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Що саме є на місці?</legend>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" name="has-ramp" value="yes">
+                    <span>Є пандус</span>
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" name="has-elevator" value="yes">
+                    <span>Є ліфт</span>
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" name="has-toilet" value="yes">
+                    <span>Є доступний туалет</span>
+                </label>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" name="has-wide-doors" value="yes">
+                    <span>Широкі двері</span>
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Додаткова інформація</legend>
+
+                <label for="place-description">Опис</label>
+                <textarea id="place-description" name="place-description" rows="3" maxlength="500" placeholder="Короткий опис місця та його доступності"></textarea>
+
+                <div class="time-group">
+                    <div>
+                        <label for="place-hours-open">Відкриття</label>
+                        <input type="time" id="place-hours-open" name="place-hours-open">
+                    </div>
+                    <div>
+                        <label for="place-hours-close">Закриття</label>
+                        <input type="time" id="place-hours-close" name="place-hours-close">
+                    </div>
+                </div>
+
+                <label for="place-website">Сайт</label>
+                <input type="url" id="place-website" name="place-website" placeholder="https://example.com">
+
+                <label for="place-photo">Фото</label>
+                <input type="file" id="place-photo" name="place-photo" accept="image/*">
+            </fieldset>
+
+            <fieldset>
+                <legend>Ваші контакти</legend>
+
+                <label for="user-name">Ім'я та прізвище *</label>
+                <input type="text" id="user-name" name="user-name" required minlength="2" maxlength="50" placeholder="Наприклад: Іван Іванов">
+
+                <label for="user-email">Ваш email *</label>
+                <input type="email" id="user-email" name="user-email" required placeholder="you@example.com">
+
+                <label for="user-phone">Номер телефону (необов'язково)</label>
+                <input type="tel" id="user-phone" name="user-phone" pattern="[0-9+\s()-]{10,20}" placeholder="+380 (99) 123-45-67" title="Введіть коректний номер телефону">
+
+                <label class="checkbox-label" style="margin-top: 15px;">
+                    <input type="checkbox" name="agree" required>
+                    <span>Я підтверджую, що інформація достовірна *</span>
+                </label>
+            </fieldset>
+
+            <button type="submit">Надіслати</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2026 FreeWay.</p>
+        <p>Наша мета — зробити міста доступними для всіх</p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+
+</body>
+</html>
